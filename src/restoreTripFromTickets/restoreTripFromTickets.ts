@@ -1,31 +1,24 @@
 import { City, Ticket } from "../types";
+import getStartOfTheTrip from "./helpers/getStartOfTheTrip/getStartofTheTrip";
 
-const getStartOfTheTrip = (cityMap: Map<City, City>): string | undefined => {
-  const destinationCities = new Set(cityMap.values());
-
-  for (const potentialSourceCity of cityMap.keys()) {
-    if (!destinationCities.has(potentialSourceCity)) {
-      return potentialSourceCity;
-    }
-  }
-
-  return undefined;
-};
+/**
+ * Calculates and restores the trip from all the tickets prvided.
+ *
+ * @param  {Ticket []} tickets        List of tickets where a ticket has both source and destination cities.
+ *
+ * @return {string | undefined}       trip => A comma separated list of cities that follows the trip according to the tickets.
+ */
 
 const restoreTripFromTickets = (tickets: Ticket[]): string => {
-  // 1. A map to hold on to the all the tickets, i.e. <sourceCity, destinationCity>
   const allTickets = new Map<City, City>();
 
-  // 2. iterate through tickets and populate the map
   for (const { source, destination } of tickets) {
     allTickets.set(source, destination);
   }
 
-  // 3. Find the start fo the trip
   let current: string | undefined = getStartOfTheTrip(allTickets);
   const trip: (City | undefined)[] = [current];
 
-  // 4. iterate the tickets from starting city and populate trip
   while (current) {
     current = allTickets.get(current);
     trip.push(current);
