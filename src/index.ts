@@ -1,11 +1,9 @@
-import { ERROR } from "./enums/errors";
-import { mockTickets } from "./mocks";
+import { demoTickets } from "./mocks";
 import restoreTripFromTickets from "./restoreTripFromTickets/restoreTripFromTickets";
 
-console.table(mockTickets);
+console.log("Tickets: ");
+console.table(demoTickets);
 
-const trip = restoreTripFromTickets(mockTickets);
+const trip = restoreTripFromTickets(demoTickets);
 
-if (trip) {
-  console.log("Restored Trip: => ", trip);
-}
+console.log("Restored Trip: => ", trip);
