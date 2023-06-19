@@ -45,7 +45,7 @@ const restoreTripFromTickets = (tickets: Ticket[]): string | null => {
       }
     }
 
-    return trip.join(",");
+    return trip.join(", ");
   } catch (error) {
     console.error(error);
 
