@@ -6,5 +6,3 @@ export const mockTickets: Ticket[] = [
   { source: "Paris", destination: "London" },
   { source: "London", destination: "Amsterdam" },
 ];
-
-

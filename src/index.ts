@@ -8,6 +8,4 @@ const trip = restoreTripFromTickets(mockTickets);
 
 if (trip) {
   console.log("Restored Trip: => ", trip);
-} else {
-  console.error(`ERROR:  => ${ERROR.FAILED_TRIP}, ${ERROR.UNKNOWN_ERROR}`);
 }
