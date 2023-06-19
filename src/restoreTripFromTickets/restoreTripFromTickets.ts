@@ -13,7 +13,7 @@ import getStartOfTheTrip from "./helpers/getStartOfTheTrip/getStartofTheTrip";
 const restoreTripFromTickets = (tickets: Ticket[]): string | null => {
   try {
     if (!tickets.length) {
-      console.error(`ERROR:  => ${ERROR.NO_TICKETS}`);
+      console.log(`ERROR:  => ${ERROR.NO_TICKETS}`);
       return null;
     }
 
@@ -26,9 +26,7 @@ const restoreTripFromTickets = (tickets: Ticket[]): string | null => {
     const start: string | null = getStartOfTheTrip(allTickets);
 
     if (!start) {
-      console.error(
-        `ERROR:  => ${ERROR.FAILED_START}, ${ERROR.TICKETS_CYCLIC}`
-      );
+      console.log(`ERROR:  => ${ERROR.FAILED_START}, ${ERROR.TICKETS_CYCLIC}`);
 
       return null;
     }
@@ -47,7 +45,7 @@ const restoreTripFromTickets = (tickets: Ticket[]): string | null => {
 
     return trip.join(", ");
   } catch (error) {
-    console.error(error);
+    console.log(error);
 
     throw error;
   }

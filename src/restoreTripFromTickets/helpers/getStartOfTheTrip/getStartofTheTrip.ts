@@ -23,7 +23,7 @@ const getStartOfTheTrip = (cityMap: Map<City, City>): City | null => {
 
     return null;
   } catch (error) {
-    console.error(`ERROR:  => ${ERROR.FAILED_START}, ${ERROR.UNKNOWN_ERROR}`);
+    console.log(`ERROR:  => ${ERROR.FAILED_START}, ${ERROR.UNKNOWN_ERROR}`);
 
     throw error;
   }
